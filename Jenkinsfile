@@ -16,6 +16,8 @@ sh '''
 ./mvnw package -DskipTests -Dquarkus.package.type=uber-jar
 '''
 archiveArtifacts 'target/*.jar'
+}
+}
 stage('Build Image') {
 environment { QUAY = credentials('QUAY_USER') }
 steps {
@@ -39,5 +41,4 @@ sh '''
 
 }
 }
-}
-}
+
